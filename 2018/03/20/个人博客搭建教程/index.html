@@ -105,8 +105,7 @@
 <meta property="og:image" content="https://shenhongwei33.github.io/2018/03/20/个人博客搭建教程/2858691-e34ee1a6b1d0da2b.png">
 <meta property="og:image" content="https://shenhongwei33.github.io/2018/03/20/个人博客搭建教程/2858691-0370eac715c74d5e.png">
 <meta property="og:image" content="https://shenhongwei33.github.io/2018/03/20/个人博客搭建教程/2858691-8153e968e0eb8bb6.png">
-<meta property="og:image" content="https://shenhongwei33.github.io/2018/03/20/个人博客搭建教程/2017/02/26/xxxx/图片名.jpg">
-<meta property="og:updated_time" content="2018-03-20T09:08:43.965Z">
+<meta property="og:updated_time" content="2018-03-20T09:14:06.831Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用GitHub和Hexo来搭建自己的个人博客">
 <meta name="twitter:description" content="最近突然想搭建自己的个人博客，又苦于没有个人的服务器，所以想到通过GitHub和Hexo来搭建，对于刚接触Github的朋友，肯定无从下手，所以记录一下自己的搭建过程以供参考 点击 documentation 来获取更多信息. 如果你有什么疑问，可以在这里 troubleshooting 找到答案，或者你可以在Github上找我 GitHub。 安装整个搭建过程需要安装Nodejs、Hexo、Gi">
@@ -357,9 +356,11 @@
 <p>以后可以用以下命令部署博客更新。也就是第三步<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//等于一次性执行了，清空、刷新、部署三个命令</span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure></p>
 <h2 id="写博客时添加图片"><a href="#写博客时添加图片" class="headerlink" title="写博客时添加图片"></a>写博客时添加图片</h2><p>1、把主页配置文件_config.yml 里的post_asset_folder:这个选项设置为true<br>2、在hexo目录下bash命令行执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-asset-image --save</span><br></pre></td></tr></table></figure></p>
 <p>这是下载安装一个可以上传本地图片的插件，来自dalao：dalao的git<br>3、等待一小段时间后，再运行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n <span class="string">"xxxx"</span></span><br></pre></td></tr></table></figure></p>
-<p>来生成md博文时，/source/_posts文件夹内除了xxxx.md文件还有一个同名的文件夹<br>4、最后在xxxx.md中想引入图片时，先把图片复制到xxxx这个文件夹中，然后只需要在xxxx.md中按照markdown的格式引入图片：</p>
+<p>来生成md博文时，/source/_posts文件夹内除了xxxx.md文件还有一个同名的文件夹<br>4、最后在xxxx.md中想引入图片时，先把图片复制到xxxx这个文件夹中，然后只需要在xxxx.md中按照markdown的格式引入图片：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![你想输入的替代文字](xxxx/图片名.jpg)</span><br></pre></td></tr></table></figure></p>
 <p>注意： xxxx是这个md文件的名字，也是同名文件夹的名字。只需要有文件夹名字即可，不需要有什么绝对路径。你想引入的图片就只需要放入xxxx这个文件夹内就好了，很像引用相对路径。</p>
-<p>5、最后检查一下，hexo g生成页面后，进入public\2017\02\26\index.html文件中查看相关字段，可以查看html标签内的语句是’<img src="/2018/03/20/个人博客搭建教程/2017/02/26/xxxx/图片名.jpg">‘，而不是&lt;img src=”xxxx/图片名.jpg&gt;。这很重要，关乎你的网页是否可以真正加载你想插入的图片。</p>
+<p>5、最后检查一下，hexo g生成页面后，进入public\2017\02\26\index.html文件中查看相关字段，可以查看html标签内的语句是<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"2017/02/26/xxxx/图片名.jpg"</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>而不是<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"xxxx/图片名.jpg&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<p>这很重要，关乎你的网页是否可以真正加载你想插入的图片。</p>
 <p>如果部署时不clean，可能之前修改的文章还存在。包括一些配置等，有时候部署完成后并没有改变，其实是缓存未清除。<br>最后在这里就不写如何绑定域名了，学生党一枚，用不到，哈哈</p>
 
       
